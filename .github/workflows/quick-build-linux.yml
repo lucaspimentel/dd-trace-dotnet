@@ -20,5 +20,5 @@ jobs:
           dotnet-version: 6.0.x
           include-prerelease: false
       - name: Build
-        #run: ./tracer/build.sh BuildTracerHome
-        run: ./tracer/build_in_docker.sh BuildTracerHome
+        run: ./tracer/build.sh BuildTracerHome
+        #run: ./tracer/build_in_docker.sh BuildTracerHome
