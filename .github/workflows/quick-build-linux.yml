@@ -1,0 +1,24 @@
+name: build Linux
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v2.0.0
+        with:
+          dotnet-version: 6.0.x
+          include-prerelease: false
+      - name: Build
+        #run: ./tracer/build.sh BuildTracerHome
+        run: ./tracer/build_in_docker.sh BuildTracerHome
